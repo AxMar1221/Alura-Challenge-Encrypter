@@ -41,3 +41,5 @@ showText();
 // Obtener el año actual
 var currentYear = new Date().getFullYear();
 document.getElementById("currentYear").innerHTML = currentYear;
+
+
