@@ -35,29 +35,28 @@ section {
   font-size: 25px;
   font-weight: 400;
   text-align: justify;
-  padding: 15px 15px;
+  padding: 10px 10px;
   margin-top: 70px;
 }
 
 .text-original:focus {
-    box-shadow: 0px 0px 10px 5px rgb(81, 37, 136);
+  box-shadow: 0px 0px 10px 5px rgb(81, 37, 136);
 }
 
 .text-encrypt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   border-radius: 15px;
   border: 1px solid #0a3871;
-  background-image: url(assets/Muñeco.png);
-  background-repeat: no-repeat;
-  background-position: bottom;
-  height: 550px;
-  width: 100%;
+  height: 650px;
+  width: 350px;
   color: #0a3871;
-  font-family: Inter;
-  font-size: 25px;
-  font-weight: 400;
-  left: 240px;
   text-align: justify;
-  padding: 15px 15px;
+  padding: 10px 10px;
+  margin-top: 20px;
+  background: #FFFFFF;
 }
 
 .text-encrypt:focus {
@@ -79,6 +78,13 @@ section {
   height: 16px;
   width: 16px;
   margin-top: 15px;
+}
+
+.div-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 button {
@@ -108,7 +114,7 @@ button .circle {
   border: none;
   color: #ffffff;
   gap: 8px;
-  height: 65px;
+  /* height: 65px; */
   padding: 24px;
   width: 320px;
 }
@@ -123,13 +129,32 @@ button .circle {
   border: 1px solid #0a3871;
   color: #0a3871;
   gap: 8px;
-  height: 65px;
+  /* height: 65px; */
   padding: 24px;
   width: 320px;
 }
 
 #btn2:focus {
   box-shadow: 0px 0px 10px 5px rgb(81, 37, 136);
+}
+
+#btn3 {
+  background: #d8dfe8;
+  border-radius: 24px;
+  border: 1px solid #0a3871;
+  color: #0a3871;
+  padding: 24px;
+  width: 200px;
+  height:max-content;
+}
+
+#btn3:focus {
+  box-shadow: 0px 0px 10px 5px rgb(81, 37, 136);
+}
+
+#show-encrypt {
+  color: #0a3871;
+  padding: 24px;
 }
 
 @keyframes scale {

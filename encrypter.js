@@ -3,7 +3,7 @@ window.addEventListener("load", () => {
   console.log("Encryptor loaded");
 });
 
-// Efecto en botones
+//Efecto en botones
 const button = document.querySelectorAll(".ripple");
 
 button.forEach((button) => {
@@ -28,18 +28,109 @@ button.forEach((button) => {
   });
 });
 
-//Texto-original
-function showText() {
-  const textarea = document.getElementById("text-original");
-  textarea.addEventListener("input", () => {
-    console.log(textarea.value);
+//crear variables para obtener los elementos HTML necesarios para la función del programa
+let textOriginal = document.getElementById("text-original");
+let textEncrypt = document.getElementById("text-encrypt");
+let showEncrypt = document.querySelector(".show-encrypt");
+
+//creamos la función para encriptara el texto con el botón Encriptar
+function encryptText() {
+  hideContent();
+
+  let encryptedText = textOriginal.value.toLowerCase();
+  let textResult = encryptedText.replace(/[aeiou]/g, function (letter) {
+    switch (letter) {
+      case "a":
+        return "ai";
+      case "e":
+        return "enter";
+      case "i":
+        return "imes";
+      case "o":
+        return "ober";
+      case "u":
+        return "ufat";
+      default:
+        break;
+    }
+  });
+  showEncrypt.innerHTML = textResult;
+  console.log(textResult);
+}
+
+//creamos la función para desencriptar el texto con el botón Desencriptar
+function decryptText() {
+  hideContent();
+
+  let encryptedText = textOriginal.value.toLowerCase();
+  let textResult = encryptedText.replace(/(ai|enter|imes|ober|ufat)/g, function (letter) {
+      switch (letter) {
+        case "ai":
+          return "a";
+        case "enter":
+          return "e";
+        case "imes":
+          return "i";
+        case "ober":
+          return "o";
+        case "ufat":
+          return "u";
+        default:
+          break;
+      }
+    }
+  );
+  showEncrypt.innerHTML = textResult;
+  console.log(textResult);
+}
+
+//función que oculta el contenido del <aside> y muestra el texto encriptado
+function hideContent() {
+  const hideContent = document.querySelectorAll(".hide");
+  hideContent.forEach((ele) => {
+    ele.style.display = "none";
+  });
+  const showContent = document.querySelectorAll(".show");
+  showContent.forEach((ele) => {
+    ele.style.display = "block";
   });
 }
-showText();
 
-//footer
-// Obtener el año actual
+//reset al área de encriptado para mostrar nuevamente el contenido original del aside
+setInterval(() => {
+  const hideContent = document.querySelectorAll(".hide");
+  hideContent.forEach((ele) => {
+    ele.style.display = "block";
+  });
+  const showContent = document.querySelectorAll(".show");
+  showContent.forEach((ele) => {
+    ele.style.display = "none";
+  });
+}, 60000);
+
+//copiar texto encriptado/desencriptado en portapapeles
+function copyText() {
+  // Seleccionar el elemento que contiene el texto a copiar
+  let element = document.getElementById("texto-a-copiar");
+  // Crear un área de texto oculta
+  let textArea = document.createElement("textarea");
+  // Asignar el valor del texto a copiar al área de texto
+  textArea.value = element.textContent;
+  // Añadir el área de texto al documento
+  document.body.appendChild(textArea);
+  // Seleccionar el texto dentro del área de texto
+  textArea.select();
+  // Copiar el texto seleccionado al portapapeles
+  document.execCommand("copy");
+  // Eliminar el área de texto del documento
+  document.body.removeChild(textArea);
+  alert("Texto copiado a portapapeles");
+  //poner el cursor en el espacio para encriptar un texto nuevo
+  let focusEncrypt = document.querySelector(".text-original");
+  focusEncrypt.value = "";
+  focusEncrypt.focus();
+}
+
+//Obtener el año actual para elemento del footer
 var currentYear = new Date().getFullYear();
 document.getElementById("currentYear").innerHTML = currentYear;
-
-

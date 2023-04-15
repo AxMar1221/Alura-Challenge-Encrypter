@@ -20,36 +20,53 @@
             <img src="assets/Logo.svg" alt="logo">
         </div>
     </header>
-    
+
     <section>
-        
-        <div class="container">
+
+        <div>
             <textarea class="text-original" id="text-original" placeholder="Ingrese el texto aquí!!"></textarea>
             <span class="rules">
                 <img src="assets/bi_exclamation-circle-fill.png" alt="exclamation-icon" class="exclamation-icon">
                 sólo ingresar letras minúsculas y sin acentos
             </span>
-        </div>
-        <div class="div-buttons">
+            <div class="div-buttons">
 
-            <button class="ripple" id="btn1">Encriptar</button>
-            <button class="ripple" id="btn2">Desencriptar</button>
+                <button class="ripple" id="btn1" onclick="encryptText()">Encriptar</button>
+                <button class="ripple" id="btn2" onclick="decryptText()">Desencriptar</button>
+            </div>
         </div>
 
     </section>
-    <section>
-        <div>
-            <textarea class="text-encrypt" id="text-encrypt"></textarea>
+
+    <aside>
+        <div class="text-encrypt">
+            <section class="hide">
+                <div class="hide" id="hide" style="display: block;">
+                    <img src="assets/Muñeco.png" alt="">
+                    <p>Ingresa el texto que desees encriptar o desencriptar</p>
+                    <h2>Ningún mensaje fue encontrado</h2>
+                </div>
+            </section>
+
+            <section class="show">
+                <div class="show" style="display: none;">
+                    <p class="show-encrypt" id="texto-a-copiar"></p>
+                    <button class="ripple" id="btn3" onclick="copyText()">Copiar</button>
+                </div>
+            </section>
         </div>
-    </section>
+    </aside>
 
     <footer>
         <p>
             <img src="https://avatars.githubusercontent.com/u/85906328?v=4" alt="avatar-github" class="avatar-github">
-            Mario Hernández "Tachi" <a href="https://github.com/AxMar1221"><i
-                    class="fa-brands fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/mario-hern%C3%A1ndez-ram%C3%ADrez-jim%C3%A9nez-aa5b8a237/"><i
-                    class="fa fa-linkedin"></i></a>
+            Mario Hernández "Tachi"
+            <a href="https://github.com/AxMar1221">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/mario-hern%C3%A1ndez-ram%C3%ADrez-jim%C3%A9nez-aa5b8a237/">
+                <i class="fa fa-linkedin"></i>
+            </a>
         </p>
         <p>&copy; <span id="currentYear"></span> Todos los derechos reservados.</p>
     </footer>
