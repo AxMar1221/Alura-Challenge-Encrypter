@@ -1,17 +1,16 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: "Inter", sans-serif;
-    background-color: #e5e5e5;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
+  font-family: "Inter", sans-serif;
+  background-color: #e5e5e5;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo {
@@ -56,7 +55,7 @@ section {
   text-align: justify;
   padding: 10px 10px;
   margin-top: 20px;
-  background: #FFFFFF;
+  background: #ffffff;
 }
 
 .text-encrypt:focus {
@@ -81,10 +80,10 @@ section {
 }
 
 .div-buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 button {
@@ -145,7 +144,7 @@ button .circle {
   color: #0a3871;
   padding: 24px;
   width: 200px;
-  height:max-content;
+  height: max-content;
 }
 
 #btn3:focus {
@@ -175,4 +174,56 @@ footer {
 .avatar-github {
   border-radius: 50%;
   width: 3%;
+}
+
+@media only screen and (max-width: 768px) {
+  /*  Ajustar el ancho del viewport */
+  meta[name="viewport"] {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  /* Ajustar la fuente y el tamaño de letra en dispositivos pequeños */
+  body {
+    font-size: 16px;
+    font-family: "Inter", sans-serif;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  /* Ajustar el tamaño de la imagen en dispositivos pequeños */
+  .logo img {
+    max-width: 150px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  /* Ajustar el ancho del textarea en dispositivos pequeños */
+  .text-original {
+    width: 100%;
+    height: 150px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  /* Ajustar el ancho de los botones en dispositivos pequeños */
+  .ripple {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  /* Ajustar la posición del texto de la sección "Ningún mensaje fue encontrado" en dispositivos pequeños */
+  .hide {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  /* Ajustar el tamaño del pie de página en dispositivos pequeños */
+  footer p {
+    font-size: 14px;
+  }
 }

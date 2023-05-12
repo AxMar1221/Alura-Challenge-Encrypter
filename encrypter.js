@@ -132,5 +132,5 @@ function copyText() {
 }
 
 //Obtener el año actual para elemento del footer
-var currentYear = new Date().getFullYear();
+let currentYear = new Date().getFullYear();
 document.getElementById("currentYear").innerHTML = currentYear;
