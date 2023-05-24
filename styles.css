@@ -12,18 +12,21 @@ body {
   justify-content: center;
   align-items: center;
 }
-
+main {
+  width: 100%;
+  min-height: 96%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 15px 15px;
+  margin: 15px 15px;
+}
 .logo {
   padding: 5px;
   position: absolute;
   top: 10px;
 }
-
-section {
-  padding: 15px 15px;
-  margin: 15px 15px;
-}
-
 .text-original {
   border-radius: 15px;
   background-color: #e5e5e5;
@@ -37,31 +40,60 @@ section {
   padding: 10px 10px;
   margin-top: 70px;
 }
-
 .text-original:focus {
   box-shadow: 0px 0px 10px 5px rgb(81, 37, 136);
 }
-
 .text-encrypt {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background: #ffffff;
   border-radius: 15px;
   border: 1px solid #0a3871;
-  height: 650px;
-  width: 350px;
-  color: #0a3871;
-  text-align: justify;
   padding: 10px 10px;
-  margin-top: 20px;
-  background: #ffffff;
+  margin: 20px;
+  text-align: justify;
+  max-width: 400px;
+  width: 40%;
+  display: flex;
+  align-items: center;
 }
-
-.text-encrypt:focus {
-  box-shadow: 0px 0px 10px 5px rgb(81, 37, 136);
+.hide-content {
+  width: 100%;
 }
-
+.muneco {
+  width: 100%;
+}
+.hide {
+  margin: 0 auto;
+  text-align: center;
+}
+.hide p {
+  font-size: 16px;
+  line-height: 150%;
+  color: #0a3871;
+}
+.hide p:first-child {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 120%;
+  margin-bottom: 16px;
+}
+.show {
+  color: #0a3871;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  display: none;
+}
+.show-encrypt {
+  color: #0a3871;
+  font-size: 24px;
+  padding: 5px;
+  min-height: 50px;
+  max-height: calc(100% - (200px));
+  overflow: auto;
+  overflow-wrap: break-word;
+}
 .rules {
   color: #495057;
   font-size: 18px;
@@ -72,20 +104,17 @@ section {
   opacity: 0.8;
   width: 205px;
 }
-
 .exclamation-icon {
   height: 16px;
   width: 16px;
   margin-top: 15px;
 }
-
 .div-buttons {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-
 button {
   font-size: 22px;
   letter-spacing: 2px;
@@ -96,7 +125,6 @@ button {
   cursor: pointer;
   text-align: center;
 }
-
 button .circle {
   position: absolute;
   background-color: #771fcf;
@@ -106,37 +134,36 @@ button .circle {
   transform: translate(-50%, -50%) scale(0);
   animation: scale 0.5s ease-out;
 }
-
+@keyframes scale {
+  to {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+  }
+}
 #btn1 {
   background: #0a3871;
   border-radius: 24px;
   border: none;
   color: #ffffff;
   gap: 8px;
-  /* height: 65px; */
   padding: 24px;
   width: 320px;
 }
-
 #btn1:focus {
   box-shadow: 0px 0px 10px 5px rgb(81, 37, 136);
 }
-
 #btn2 {
   background: #d8dfe8;
   border-radius: 24px;
   border: 1px solid #0a3871;
   color: #0a3871;
   gap: 8px;
-  /* height: 65px; */
   padding: 24px;
   width: 320px;
 }
-
 #btn2:focus {
   box-shadow: 0px 0px 10px 5px rgb(81, 37, 136);
 }
-
 #btn3 {
   background: #d8dfe8;
   border-radius: 24px;
@@ -146,84 +173,67 @@ button .circle {
   width: 200px;
   height: max-content;
 }
-
 #btn3:focus {
   box-shadow: 0px 0px 10px 5px rgb(81, 37, 136);
 }
-
-#show-encrypt {
-  color: #0a3871;
-  padding: 24px;
-}
-
-@keyframes scale {
-  to {
-    transform: translate(-50%, -50%) scale(3);
-    opacity: 0;
-  }
-}
-
 footer {
   position: absolute;
   color: #0a3871;
+  height: auto;
   width: 100%;
-  font-size: 22px;
+  font-size: 18px;
   bottom: 0;
+  padding: auto;
   text-align: center;
 }
 .avatar-github {
   border-radius: 50%;
   width: 3%;
 }
+@media screen and (max-width: 768px) {
+  header {
+    top: 20px;
+  }
+  main {
+    flex-direction: column;
+  }
+  .input {
+    width: calc(100% - (80px));
+    padding: 128px 0 0;
+  }
+  .text-encrypt {
+    width: calc(100% - (80px));
+    margin-top: 0;
+    max-width: 100%;
+  }
+  .hide-content {
+    margin: 0;
+  }
+  footer {
+    display: none;
+  }
+}
 
-@media only screen and (max-width: 768px) {
-  /*  Ajustar el ancho del viewport */
-  meta[name="viewport"] {
+@media screen and (max-width: 375px) {
+  header {
+    top: 10px;
+  }
+  .input {
+    margin: 16px;
+    width: calc(100% - (32px));
+    padding: 74px 0 0;
+  }
+  .div-buttons {
+    flex-direction: column;
+  }
+  .div-buttons {
     width: 100%;
   }
-}
-
-@media only screen and (max-width: 768px) {
-  /* Ajustar la fuente y el tamaño de letra en dispositivos pequeños */
-  body {
-    font-size: 16px;
-    font-family: "Inter", sans-serif;
+  .text-encrypt {
+    margin: 0 16px 16px;
+    width: calc(100% - (32px));
   }
-}
-
-@media only screen and (max-width: 768px) {
-  /* Ajustar el tamaño de la imagen en dispositivos pequeños */
-  .logo img {
-    max-width: 150px;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  /* Ajustar el ancho del textarea en dispositivos pequeños */
-  .text-original {
-    width: 100%;
-    height: 150px;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  /* Ajustar el ancho de los botones en dispositivos pequeños */
-  .ripple {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  /* Ajustar la posición del texto de la sección "Ningún mensaje fue encontrado" en dispositivos pequeños */
-  .hide {
-    text-align: center;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  /* Ajustar el tamaño del pie de página en dispositivos pequeños */
-  footer p {
-    font-size: 14px;
+  footer {
+    display: none;
   }
 }

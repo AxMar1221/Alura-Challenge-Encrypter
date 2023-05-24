@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,9 +9,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/750ba6d981.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="styles.css">
     <title>Encriptador de Textos</title>
 </head>
+
 <body>
 
     <header class="header">
@@ -18,40 +21,44 @@
             <img src="./assets/Logo.svg" alt="logo">
         </div>
     </header>
+    <main>
 
-    <section>
-        <div>
-            <textarea class="text-original" id="text-original" placeholder="Ingrese el texto aquí!!"></textarea>
-            <span class="rules">
-                <img src="./assets/bi_exclamation-circle-fill.png" alt="exclamation-icon" class="exclamation-icon">
-                sólo ingresar letras minúsculas y sin acentos
-            </span>
-            <div class="div-buttons">
 
-                <button class="ripple" id="btn1" onclick="encryptText()">Encriptar</button>
-                <button class="ripple" id="btn2" onclick="decryptText()">Desencriptar</button>
+        <section class="input">
+            <div>
+                <textarea class="text-original" id="text-original" placeholder="Ingrese el texto aquí!!"></textarea>
+                <span class="rules">
+                    <img src="./assets/bi_exclamation-circle-fill.png" alt="exclamation-icon" class="exclamation-icon">
+                    sólo ingresar letras minúsculas y sin acentos
+                </span>
+                <div class="div-buttons">
+
+                    <button class="ripple" id="btn1" onclick="encryptText()">Encriptar</button>
+                    <button class="ripple" id="btn2" onclick="decryptText()">Desencriptar</button>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <aside>
-        <div class="text-encrypt">
-            <section class="hide">
-                <div class="hide" id="hide" style="display: block;">
-                    <img src="./assets/Muñeco.png" alt="">
+        <section class="text-encrypt">
+            <div class="hide-content">
+                <div class="muneco">
+                    <img id="muneco" src="./assets/Muñeco.png" alt="">
+                </div>
+                <div class="hide" id="hide">
+                    <p>Ningún mensaje fue encontrado</p>
                     <p>Ingresa el texto que desees encriptar o desencriptar</p>
-                    <h2>Ningún mensaje fue encontrado</h2>
                 </div>
-            </section>
 
-            <section class="show">
-                <div class="show" style="display: none;">
+
+
+                <div class="show">
                     <p class="show-encrypt" id="texto-a-copiar"></p>
-                    <button class="ripple" id="btn3" onclick="copyText()">Copiar</button>
+                    <button class="ripple text-center" id="btn3" onclick="copyText()">Copiar</button>
                 </div>
-            </section>
-        </div>
-    </aside>
+
+            </div>
+        </section>
+    </main>
 
     <footer>
         <p>

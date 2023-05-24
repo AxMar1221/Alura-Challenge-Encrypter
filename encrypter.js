@@ -63,7 +63,9 @@ function decryptText() {
   hideContent();
 
   let encryptedText = textOriginal.value.toLowerCase();
-  let textResult = encryptedText.replace(/(ai|enter|imes|ober|ufat)/g, function (letter) {
+  let textResult = encryptedText.replace(
+    /(ai|enter|imes|ober|ufat)/g,
+    function (letter) {
       switch (letter) {
         case "ai":
           return "a";
@@ -86,6 +88,10 @@ function decryptText() {
 
 //función que oculta el contenido del <aside> y muestra el texto encriptado
 function hideContent() {
+  const hideMuneco = document.querySelectorAll(".muneco");
+  hideMuneco.forEach((ele) => {
+    ele.style.display = "none";
+  });
   const hideContent = document.querySelectorAll(".hide");
   hideContent.forEach((ele) => {
     ele.style.display = "none";
@@ -96,8 +102,12 @@ function hideContent() {
   });
 }
 
-//reset al área de encriptado para mostrar nuevamente el contenido original del aside
+//reset al área de encriptado para mostrar nuevamente el contenido original de la section
 setInterval(() => {
+  const hideMuneco = document.querySelectorAll(".muneco");
+  hideMuneco.forEach((ele) => {
+    ele.style.display = "block";
+  });
   const hideContent = document.querySelectorAll(".hide");
   hideContent.forEach((ele) => {
     ele.style.display = "block";
@@ -106,6 +116,7 @@ setInterval(() => {
   showContent.forEach((ele) => {
     ele.style.display = "none";
   });
+  console.log("page reload");
 }, 60000);
 
 //copiar texto encriptado/desencriptado en portapapeles
