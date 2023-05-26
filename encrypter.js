@@ -33,9 +33,36 @@ let textOriginal = document.getElementById("text-original");
 let textEncrypt = document.getElementById("text-encrypt");
 let showEncrypt = document.querySelector(".show-encrypt");
 
+//validar texto
+function verifyText() {
+  let verifyText = document.getElementById("text-original").value;
+  if(/[A-ZÁÉÍÓÚáéíóú]/.test(verifyText)) {
+    Swal.fire({
+      title: 'El texto contiene mayúsculas y/o acentos',
+      icon: 'error',
+      showConfirmButton: true,
+      confirmButtonColor: "#0a3871",
+      timer: 4000,
+      timerProgressBar: true,
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      }
+    })
+      return false; // interrumpe la ejecución de la función
+  }
+}
+
 //creamos la función para encriptara el texto con el botón Encriptar
 function encryptText() {
   hideContent();
+
+  let verify = verifyText();
+  if( verify == false){
+      return;
+  }
 
   let encryptedText = textOriginal.value.toLowerCase();
   let textResult = encryptedText.replace(/[aeiou]/g, function (letter) {
@@ -61,6 +88,11 @@ function encryptText() {
 //creamos la función para desencriptar el texto con el botón Desencriptar
 function decryptText() {
   hideContent();
+
+  let verify = verifyText();
+  if( verify == false){
+      return;
+  }
 
   let encryptedText = textOriginal.value.toLowerCase();
   let textResult = encryptedText.replace(
@@ -135,7 +167,21 @@ function copyText() {
   document.execCommand("copy");
   // Eliminar el área de texto del documento
   document.body.removeChild(textArea);
-  alert("Texto copiado a portapapeles");
+  // alert("Texto copiado a portapapeles");
+  Swal.fire({
+    title: 'Texto copiado a portapapeles',
+    icon: 'success',
+    showConfirmButton: true,
+    confirmButtonColor: "#0a3871",
+    timer: 4000,
+    timerProgressBar: true,
+    showClass: {
+      popup: 'animate__animated animate__fadeInDown'
+    },
+    hideClass: {
+      popup: 'animate__animated animate__fadeOutUp'
+    }
+  })
   //poner el cursor en el espacio para encriptar un texto nuevo
   let focusEncrypt = document.querySelector(".text-original");
   focusEncrypt.value = "";
