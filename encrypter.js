@@ -1,4 +1,4 @@
-//Mensaje en consola de carga de la pagina
+//Mensaje en consola cuando termina de cargar de la pagina
 window.addEventListener("load", () => {
   console.log("Encryptor loaded");
 });
@@ -33,7 +33,7 @@ let textOriginal = document.getElementById("text-original");
 let textEncrypt = document.getElementById("text-encrypt");
 let showEncrypt = document.querySelector(".show-encrypt");
 
-//validar texto
+//validar que el texto no contenga mayúsculas o caracteres especiales 
 function verifyText() {
   let verifyText = document.getElementById("text-original").value;
   if(/[A-ZÁÉÍÓÚáéíóú]/.test(verifyText)) {
